@@ -1,0 +1,40 @@
+<!-- page 2 -->
+
+<div class="container-fluid">
+    <h3 style="margin-top: 70px; margin-left: 40%; margin-right: 40%; ">List of Employees</h3>
+    <hr>
+    <div>
+        <button class="btn btn-success"><a href="#!/page3">Add New</a></button>
+    </div>
+    <hr>
+    <div class="table-responsive" id="empTable">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#ID</th>
+                    <th>Employee Name<a class="glyphicon glyphicon-sort" data-ng-click="orderByMe('firstname')"></a></th>
+                    <th>Gender</th>
+                    <th>Email</th>
+                    <th>City</th>
+                    <th>Age<a class="glyphicon glyphicon-sort" data-ng-click="orderByMe('age')"></a></th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="x in myData | orderBy:myOrderBy">
+                    <td>{{x.id}}</td>
+                    <td>{{x.firstname + ' ' + x.lastname}}</td>
+                    <td>{{(x.gender=='M') ? (x.gender + 'ale') : (x.gender + 'emale')}}</td>
+                    <td>{{x.email}}</td>
+                    <td>{{x.city}}</td>
+                    <td>{{x.age}}</td>
+                    <td><input type="button" class="btn btn-warning" value="Edit"></td>
+                    <td><input type="button" class="btn btn-danger" value="Delete" data-ng-click="deleteMe($index)"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+</div>
